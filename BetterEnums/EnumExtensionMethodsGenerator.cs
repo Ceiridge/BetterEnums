@@ -74,7 +74,6 @@ namespace BetterEnums {
 		/// <summary>
 		/// Appends GetT methods where T is the attribute
 		/// </summary>
-		/// <param name="builder"></param>
 		private void AppendValues(StringBuilder builder) {
 			int i = 0;
 			Dictionary<string, StringBuilder> methodBuilders = new Dictionary<string, StringBuilder>();

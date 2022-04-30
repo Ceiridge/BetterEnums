@@ -12,6 +12,9 @@
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <RepositoryUrl>https://github.com/Ceiridge/CSharp-Better-Enums</RepositoryUrl>
 	  <PackageTags>csharp;csharp-sourcegenerators;source-generator;sourcegenerator;csharp-sourcegenerator;enum;enums</PackageTags>
+	  <AssemblyVersion></AssemblyVersion>
+	  <FileVersion></FileVersion>
+	  <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +22,7 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+	<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 
   <ItemGroup>
