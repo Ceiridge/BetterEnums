@@ -1,6 +1,9 @@
-# C# Better Enums
+# C# Better Enums Source Generator
 
+A step in making C# enums usable in order to not fall behind Java.\
 A source generator that adds extension methods for enums with any attribute. Also adds more performant methods.
+
+Install the [NuGet](https://www.nuget.org/packages/BetterEnums) or [GitHub](https://github.com/Ceiridge?tab=packages&repo_name=CSharp-Better-Enums) package.
 
 ## How to use
 ```csharp

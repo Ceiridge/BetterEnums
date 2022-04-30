@@ -12,7 +12,6 @@
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <RepositoryUrl>https://github.com/Ceiridge/CSharp-Better-Enums</RepositoryUrl>
 	  <PackageTags>csharp;csharp-sourcegenerators;source-generator;sourcegenerator;csharp-sourcegenerator;enum;enums</PackageTags>
-	  <PackageLicenseFile>..\LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
