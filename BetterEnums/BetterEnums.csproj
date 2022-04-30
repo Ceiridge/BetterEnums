@@ -7,10 +7,10 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Authors>Ceiridge</Authors>
 	  <Description>C# source generator to easily access enum attributes and with a better performance</Description>
-	  <PackageProjectUrl>https://github.com/Ceiridge/CSharp-Better-Enums</PackageProjectUrl>
+	  <PackageProjectUrl>https://github.com/Ceiridge/BetterEnums</PackageProjectUrl>
 	  <Copyright>MIT License 2022, $(Authors)</Copyright>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
-	  <RepositoryUrl>https://github.com/Ceiridge/CSharp-Better-Enums</RepositoryUrl>
+	  <RepositoryUrl>https://github.com/Ceiridge/BetterEnums</RepositoryUrl>
 	  <PackageTags>csharp;csharp-sourcegenerators;source-generator;sourcegenerator;csharp-sourcegenerator;enum;enums</PackageTags>
 	  <AssemblyVersion></AssemblyVersion>
 	  <FileVersion></FileVersion>
