@@ -10,7 +10,7 @@ namespace BetterEnums {
 	[Generator]
 	public class BetterEnumsGenerator : ISourceGenerator {
 		public void Initialize(GeneratorInitializationContext context) {
-			// Debugger.Launch();
+			Debugger.Launch();
 		}
 
 		public void Execute(GeneratorExecutionContext context) {
@@ -20,6 +20,34 @@ namespace BetterEnums {
 
 		private static void AddAttribute(GeneratorExecutionContext context) {
 			context.AddSource(BetterEnumsSources.ATTRIBUTE, SourceText.From(BetterEnumsSources.ATTRIBUTE_SOURCE, Encoding.UTF8));
+		}
+
+		private static void AddExtension(GeneratorExecutionContext context, IEnumerable<EnumDeclarationSyntax> enums) {
+			StringBuilder enumExtension = new StringBuilder(BetterEnumsSources.ENUM_EXTENSION_SOURCE_START);
+			List<IExtensionGenerator> generators = new List<IExtensionGenerator>();
+
+			foreach (EnumDeclarationSyntax enumDec in enums) {
+				generators.Add(new EnumExtensionMethodsGenerator(enumDec,
+					context.Compilation.GetSemanticModel(enumDec.SyntaxTree)));
+			}
+
+
+			foreach (IExtensionGenerator gen in generators) {
+				gen.AddFieldsGeneration(enumExtension);
+				gen.AddGeneration(enumExtension);
+			}
+
+			enumExtension.AppendLine($"static {BetterEnumsSources.EXTENSION}() {{");
+			foreach (IExtensionGenerator gen in generators) {
+				gen.AddCctorGeneration(enumExtension);
+			}
+			enumExtension.AppendLine("}");
+
+			enumExtension.Append(BetterEnumsSources.ENUM_GET_ATTRIBUTE_METHOD_SOURCE);
+			enumExtension.Append(BetterEnumsSources.ENUM_EXTENSION_SOURCE_END);
+
+			string enumExtensionSource = enumExtension.ToString();
+			context.AddSource(BetterEnumsSources.EXTENSION, SourceText.From(enumExtensionSource, Encoding.UTF8));
 		}
 
 		private static IEnumerable<EnumDeclarationSyntax> GetEnums(GeneratorExecutionContext context) {
@@ -35,22 +63,6 @@ namespace BetterEnums {
 					}
 				}
 			}
-		}
-
-		private static void AddExtension(GeneratorExecutionContext context, IEnumerable<EnumDeclarationSyntax> enums) {
-			StringBuilder enumExtension = new StringBuilder(BetterEnumsSources.ENUM_EXTENSION_SOURCE_START);
-
-			foreach (EnumDeclarationSyntax enumDec in enums) {
-				EnumExtensionMethodsGenerator gen = new EnumExtensionMethodsGenerator(enumDec,
-					context.Compilation.GetSemanticModel(enumDec.SyntaxTree));
-
-				gen.AddGeneration(enumExtension);
-			}
-
-			enumExtension.Append(BetterEnumsSources.ENUM_EXTENSION_SOURCE_END);
-
-			string enumExtensionSource = enumExtension.ToString();
-			context.AddSource(BetterEnumsSources.EXTENSION, SourceText.From(enumExtensionSource, Encoding.UTF8));
 		}
 	}
 }

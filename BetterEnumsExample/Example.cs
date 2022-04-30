@@ -1,5 +1,6 @@
-﻿namespace BetterEnumsExample;
-using BetterEnumsGen;
+﻿using BetterEnumsGen;
+
+namespace BetterEnumsExample;
 
 public class Example {
 	public static void Main(string[] _) {
