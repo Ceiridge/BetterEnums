@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterEnums", "BetterEnums\BetterEnums.csproj", "{913B0EB9-6E7C-48CC-A0AA-384623B0264B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterEnumsExample", "BetterEnumsExample\BetterEnumsExample.csproj", "{A206EFCC-3EF4-435F-B72D-4AA28B350647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{913B0EB9-6E7C-48CC-A0AA-384623B0264B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{913B0EB9-6E7C-48CC-A0AA-384623B0264B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{913B0EB9-6E7C-48CC-A0AA-384623B0264B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A206EFCC-3EF4-435F-B72D-4AA28B350647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A206EFCC-3EF4-435F-B72D-4AA28B350647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A206EFCC-3EF4-435F-B72D-4AA28B350647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A206EFCC-3EF4-435F-B72D-4AA28B350647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
