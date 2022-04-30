@@ -11,7 +11,17 @@ public enum ExampleEnum {
 	[ExampleEnumInfo("Test Enum", 5)]
 	Test,
 	[ExampleEnumInfo("Working enum", 7)]
+	[Description("Even more attributes")]
 	Working
+}
+
+[BetterEnum]
+public enum AnotherEnum {
+	Hello,
+	[ExampleEnumInfo("Hello", 1)]
+	Another,
+	[Description("1")]
+	One
 }
 
 public class ExampleEnumInfoAttribute : Attribute {

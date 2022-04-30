@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +9,6 @@ namespace BetterEnums {
 	[Generator]
 	public class BetterEnumsGenerator : ISourceGenerator {
 		public void Initialize(GeneratorInitializationContext context) {
-			Debugger.Launch();
 		}
 
 		public void Execute(GeneratorExecutionContext context) {
@@ -43,8 +41,9 @@ namespace BetterEnums {
 			}
 			enumExtension.AppendLine("}");
 
-			enumExtension.Append(BetterEnumsSources.ENUM_GET_ATTRIBUTE_METHOD_SOURCE);
-			enumExtension.Append(BetterEnumsSources.ENUM_EXTENSION_SOURCE_END);
+			enumExtension.AppendLine(BetterEnumsSources.ENUM_GET_ATTRIBUTE_METHOD_SOURCE);
+			enumExtension.AppendLine(BetterEnumsSources.ENUM_GET_ATTRIBUTES_METHOD_SOURCE);
+			enumExtension.AppendLine(BetterEnumsSources.ENUM_EXTENSION_SOURCE_END);
 
 			string enumExtensionSource = enumExtension.ToString();
 			context.AddSource(BetterEnumsSources.EXTENSION, SourceText.From(enumExtensionSource, Encoding.UTF8));

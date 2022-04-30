@@ -10,6 +10,12 @@ namespace BetterEnums {
 			return hash.ToHex();
 		}
 
+		public static string NoAttributeEnding(this string str) {
+			return str.EndsWith("Attribute")
+				? str.Substring(0, str.Length - "Attribute".Length)
+				: str;
+		}
+
 		public static string ToHex(this byte[] bytes, bool upperCase = false) {
 			StringBuilder result = new StringBuilder(bytes.Length * 2);
 			foreach (byte t in bytes) {

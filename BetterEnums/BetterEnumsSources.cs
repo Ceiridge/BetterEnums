@@ -23,9 +23,20 @@ namespace {NAMESPACE} {{
 /// Returns the enum member identifier name (more performant)
 /// </summary>
 public static string BetterToString(this {0} @enum) {{
-	return @enum switch {{
 ";
-		public const string ENUM_TO_STRING_SOURCE_END = @"_ => throw new ArgumentOutOfRangeException(nameof(@enum), @enum, null)
+		public const string ENUM_VALUES_SOURCE = @"
+/// <summary>
+/// Returns the respective attribute of the given enum.
+/// May return null if the enum does not have that attribute.
+/// </summary>
+public static {0}? Get{1}(this {2} @enum) {{
+";
+
+		public const string ENUM_SWITCH_SOURCE_START = @"	return @enum switch {";
+		public const string ENUM_SWITCH_SOURCE_END = @"_ => throw new ArgumentOutOfRangeException(nameof(@enum), @enum, null)
+	};
+}";
+		public const string ENUM_SWITCH_SOURCE_END_NULL = @"_ => null
 	};
 }";
 
@@ -47,6 +58,15 @@ public static string BetterToString(this {0} @enum) {{
 		MemberInfo[] memInfo = type.GetMember(enumVal.ToString());
 		object[] attributes = memInfo[0].GetCustomAttributes(typeof(T), false);
 		return (attributes.Length > 0) ? (T)attributes[0] : null;
+	}";
+
+		public const string ENUM_GET_ATTRIBUTES_METHOD_SOURCE = @"
+	private static object[] GetEnumAttributes(Type enumType) {
+		return enumType.GetMembers()
+			.Where(member => member.MemberType == MemberTypes.Field && ((FieldInfo)member).FieldType == enumType)
+			.Select(member => member.GetCustomAttributes(false))
+			.SelectMany(attributeList => attributeList)
+			.ToArray();
 	}";
 	}
 }
