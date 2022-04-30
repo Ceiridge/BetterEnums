@@ -4,7 +4,23 @@
 	  <TargetFramework>netstandard2.0</TargetFramework>
 	  <LangVersion>8.0</LangVersion>
 	  <Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Authors>Ceiridge</Authors>
+	  <Description>C# source generator to easily access enum attributes and with a better performance</Description>
+	  <PackageProjectUrl>https://github.com/Ceiridge/CSharp-Better-Enums</PackageProjectUrl>
+	  <Copyright>MIT License 2022, $(Authors)</Copyright>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/Ceiridge/CSharp-Better-Enums</RepositoryUrl>
+	  <PackageTags>csharp;csharp-sourcegenerators;source-generator;sourcegenerator;csharp-sourcegenerator;enum;enums</PackageTags>
+	  <PackageLicenseFile>..\LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
