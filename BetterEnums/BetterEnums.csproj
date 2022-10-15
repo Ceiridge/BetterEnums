@@ -10,6 +10,7 @@
 	  <PackageProjectUrl>https://github.com/Ceiridge/BetterEnums</PackageProjectUrl>
 	  <Copyright>MIT License 2022, $(Authors)</Copyright>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RepositoryUrl>https://github.com/Ceiridge/BetterEnums</RepositoryUrl>
 	  <PackageTags>csharp;csharp-sourcegenerators;source-generator;sourcegenerator;csharp-sourcegenerator;enum;enums</PackageTags>
 	  <AssemblyVersion></AssemblyVersion>
