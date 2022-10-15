@@ -15,6 +15,7 @@ namespace {NAMESPACE} {{
 		public static readonly string ENUM_EXTENSION_SOURCE_START = $@"
 using System;
 using System.Reflection;
+using System.Linq;
 namespace {NAMESPACE} {{
 	public static class {EXTENSION} {{";
 
