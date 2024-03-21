@@ -10,9 +10,12 @@ Install the [NuGet](https://www.nuget.org/packages/BetterEnums) or [GitHub](http
 [BetterEnum] // Add this attribute to the enum
 public enum ExampleEnum {
 	AnExample,
-	[ExampleEnumInfo("Hello", 1)] // Add attributes to your enum members
+
+	// Add attributes to your enum members
+	[ExampleEnumInfo("Hello", 1)]
 	[Description("Another text")]
 	Another,
+
 	[Description("1")]
 	One
 }
@@ -20,11 +23,13 @@ public enum ExampleEnum {
 
 The following methods are now available via an extension class:
 ```csharp
+// Access the value attributes directly
+ExampleEnum.Another.GetExampleEnumInfo(); // Retrieves the ExampleEnumInfo attribute value without reflection
+ExampleEnum.Another.GetDescription().Description;
+
 // Faster ToString
 ExampleEnum.AnExample.BetterToString();
-// Access the value attributes directly
-ExampleEnum.Another.GetExampleEnumInfo();
-ExampleEnum.Another.GetDescription().Description;
+
 // Programmatically access an attribute (uses slow runtime reflection on each call)
 ExampleEnum.One.GetAttributeOfType<DescriptionAttribute>();
 ```
